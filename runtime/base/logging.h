@@ -18,6 +18,7 @@
 #define ART_RUNTIME_BASE_LOGGING_H_
 
 #include <ostream>
+#include <memory>
 
 #include "base/macros.h"
 

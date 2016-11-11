@@ -16,7 +16,9 @@
 
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(STANDALONE_BUILD),)
 include art/build/Android.common_build.mk
+endif
 
 LIBART_COMPILER_SRC_FILES := \
 	compiled_method.cc \

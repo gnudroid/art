@@ -645,7 +645,7 @@ class MarkSweep::DelayReferenceReferentVisitor {
   MarkSweep* const collector_;
 };
 
-template <bool kUseFinger = false>
+template <bool kUseFinger>
 class MarkSweep::MarkStackTask : public Task {
  public:
   MarkStackTask(ThreadPool* thread_pool,

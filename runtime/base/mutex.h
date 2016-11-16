@@ -120,7 +120,78 @@ enum LockLevel {
 
   kLockLevelCount  // Must come last.
 };
-std::ostream& operator<<(std::ostream& os, const LockLevel& rhs);
+
+inline std::ostream& operator<<(std::ostream& os, const LockLevel& rhs)
+{
+    switch (rhs)
+    {
+        case kLoggingLock:                            os << "kLoggingLock";                           break;
+        case kMemMapsLock:                            os << "kMemMapsLock";                           break;
+        case kSwapMutexesLock:                        os << "kSwapMutexesLock";                       break;
+        case kUnexpectedSignalLock:                   os << "kUnexpectedSignalLock";                  break;
+        case kThreadSuspendCountLock:                 os << "kThreadSuspendCountLock";                break;
+        case kAbortLock:                              os << "kAbortLock";                             break;
+        case kLambdaTableLock:                        os << "kLambdaTableLock";                       break;
+        case kJdwpSocketLock:                         os << "kJdwpSocketLock";                        break;
+        case kRegionSpaceRegionLock:                  os << "kRegionSpaceRegionLock";                 break;
+        case kRosAllocGlobalLock:                     os << "kRosAllocGlobalLock";                    break;
+        case kRosAllocBracketLock:                    os << "kRosAllocBracketLock";                   break;
+        case kRosAllocBulkFreeLock:                   os << "kRosAllocBulkFreeLock";                  break;
+        case kMarkSweepMarkStackLock:                 os << "kMarkSweepMarkStackLock";                break;
+        case kTransactionLogLock:                     os << "kTransactionLogLock";                    break;
+        case kJniWeakGlobalsLock:                     os << "kJniWeakGlobalsLock";                    break;
+        case kReferenceQueueSoftReferencesLock:       os << "kReferenceQueueSoftReferencesLock";      break;
+        case kReferenceQueuePhantomReferencesLock:    os << "kReferenceQueuePhantomReferencesLock";   break;
+        case kReferenceQueueFinalizerReferencesLock:  os << "kReferenceQueueFinalizerReferencesLock"; break;
+        case kReferenceQueueWeakReferencesLock:       os << "kReferenceQueueWeakReferencesLock";      break;
+        case kReferenceQueueClearedReferencesLock:    os << "kReferenceQueueClearedReferencesLock";   break;
+        case kReferenceProcessorLock:                 os << "kReferenceProcessorLock";                break;
+        case kJitDebugInterfaceLock:                  os << "kJitDebugInterfaceLock";                 break;
+        case kAllocSpaceLock:                         os << "kAllocSpaceLock";                        break;
+        case kBumpPointerSpaceBlockLock:              os << "kBumpPointerSpaceBlockLock";             break;
+        case kArenaPoolLock:                          os << "kArenaPoolLock";                         break;
+        case kDexFileMethodInlinerLock:               os << "kDexFileMethodInlinerLock";              break;
+        case kDexFileToMethodInlinerMapLock:          os << "kDexFileToMethodInlinerMapLock";         break;
+        case kInternTableLock:                        os << "kInternTableLock";                       break;
+        case kOatFileSecondaryLookupLock:             os << "kOatFileSecondaryLookupLock";            break;
+        case kHostDlOpenHandlesLock:                  os << "kHostDlOpenHandlesLock";                 break;
+        case kOatFileManagerLock:                     os << "kOatFileManagerLock";                    break;
+        case kTracingUniqueMethodsLock:               os << "kTracingUniqueMethodsLock";              break;
+        case kTracingStreamingLock:                   os << "kTracingStreamingLock";                  break;
+        case kDeoptimizedMethodsLock:                 os << "kDeoptimizedMethodsLock";                break;
+        case kJitCodeCacheLock:                       os << "kJitCodeCacheLock";                      break;
+        case kClassLoaderClassesLock:                 os << "kClassLoaderClassesLock";                break;
+        case kDefaultMutexLevel:                      os << "kDefaultMutexLevel";                     break;
+        case kMarkSweepLargeObjectLock:               os << "kMarkSweepLargeObjectLock";              break;
+        case kPinTableLock:                           os << "kPinTableLock";                          break;
+        case kJdwpObjectRegistryLock:                 os << "kJdwpObjectRegistryLock";                break;
+        case kModifyLdtLock:                          os << "kModifyLdtLock";                         break;
+        case kAllocatedThreadIdsLock:                 os << "kAllocatedThreadIdsLock";                break;
+        case kMonitorPoolLock:                        os << "kMonitorPoolLock";                       break;
+        case kMethodVerifiersLock:                    os << "kMethodVerifiersLock";                   break;
+        case kClassLinkerClassesLock:                 os << "kClassLinkerClassesLock";                break;
+        case kBreakpointLock:                         os << "kBreakpointLock";                        break;
+        case kMonitorLock:                            os << "kMonitorLock";                           break;
+        case kMonitorListLock:                        os << "kMonitorListLock";                       break;
+        case kJniLoadLibraryLock:                     os << "kJniLoadLibraryLock";                    break;
+        case kThreadListLock:                         os << "kThreadListLock";                        break;
+        case kAllocTrackerLock:                       os << "kAllocTrackerLock";                      break;
+        case kDeoptimizationLock:                     os << "kDeoptimizationLock";                    break;
+        case kProfilerLock:                           os << "kProfilerLock";                          break;
+        case kJdwpShutdownLock:                       os << "kJdwpShutdownLock";                      break;
+        case kJdwpEventListLock:                      os << "kJdwpEventListLock";                     break;
+        case kJdwpAttachLock:                         os << "kJdwpAttachLock";                        break;
+        case kJdwpStartLock:                          os << "kJdwpStartLock";                         break;
+        case kRuntimeShutdownLock:                    os << "kRuntimeShutdownLock";                   break;
+        case kTraceLock:                              os << "kTraceLock";                             break;
+        case kHeapBitmapLock:                         os << "kHeapBitmapLock";                        break;
+        case kMutatorLock:                            os << "kMutatorLock";                           break;
+        case kInstrumentEntrypointsLock:              os << "kInstrumentEntrypointsLock";             break;
+        case kZygoteCreationLock:                     os << "kZygoteCreationLock";                    break;
+        default:                                      os << "unknown";                                break;
+    }
+    return os;
+}
 
 const bool kDebugLocking = kIsDebugBuild;
 

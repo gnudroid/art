@@ -59,7 +59,25 @@ enum VRegKind {
   kImpreciseConstant,
   kUndefined,
 };
-std::ostream& operator<<(std::ostream& os, const VRegKind& rhs);
+
+inline std::ostream& operator<<(std::ostream& os, const VRegKind& rhs)
+{
+    switch (rhs)
+    {
+        case kReferenceVReg:      os << "kReferenceVReg";       break;
+        case kIntVReg:            os << "kIntVReg";             break;
+        case kFloatVReg:          os << "kFloatVReg";           break;
+        case kLongLoVReg:         os << "kLongLoVReg";          break;
+        case kLongHiVReg:         os << "kLongHiVReg";          break;
+        case kDoubleLoVReg:       os << "kDoubleLoVReg";        break;
+        case kDoubleHiVReg:       os << "kDoubleHiVReg";        break;
+        case kConstant:           os << "kConstant";            break;
+        case kImpreciseConstant:  os << "kImpreciseConstant";   break;
+        case kUndefined:          os << "kUndefined";           break;
+        default:                  os << "unknown";              break;
+    }
+    return os;
+}
 
 // A reference from the shadow stack to a MirrorType object within the Java heap.
 template<class MirrorType>

@@ -16,7 +16,9 @@
 
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(STANDALONE_BUILD),)
 include art/build/Android.common_build.mk
+endif
 
 LIBART_COMMON_SRC_FILES := \
   art_field.cc \
@@ -634,6 +636,8 @@ ifeq ($(ART_BUILD_TARGET_DEBUG),true)
   $(eval $(call build-runtime-library,target,debug,shared,libopenjdkjvm))
 endif
 
+ifeq ($(STANDALONE_BUILD),)
+
 # Clear locally defined variables.
 LOCAL_PATH :=
 LIBART_COMMON_SRC_FILES :=
@@ -663,3 +667,5 @@ LIBART_CFLAGS :=
 LIBART_TARGET_CFLAGS :=
 LIBART_HOST_CFLAGS :=
 build-runtime-library :=
+
+endif

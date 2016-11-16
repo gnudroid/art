@@ -76,7 +76,7 @@ class MANAGED ClassLoader : public Object {
   HeapReference<ClassLoader> parent_;
   HeapReference<Object> proxyCache_;
   // Native pointer to class table, need to zero this out when image writing.
-  uint32_t padding_ ATTRIBUTE_UNUSED;
+  uint32_t padding_;
   uint64_t allocator_;
   uint64_t class_table_;
 

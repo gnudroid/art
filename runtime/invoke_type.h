@@ -30,7 +30,18 @@ enum InvokeType {
   kMaxInvokeType = kInterface
 };
 
-std::ostream& operator<<(std::ostream& os, const InvokeType& rhs);
+inline std::ostream& operator<<(std::ostream& os, const InvokeType &rhs)
+{
+    switch (rhs)
+    {
+        case kStatic:     os << "kStatic";    break;
+        case kDirect:     os << "kDirect";    break;
+        case kVirtual:    os << "kVirtual";   break;
+        case kSuper:      os << "kSuper";     break;
+        case kInterface:  os << "kInterface"; break;
+        default:          os << "unknown";    break;
+    }
+}
 
 }  // namespace art
 

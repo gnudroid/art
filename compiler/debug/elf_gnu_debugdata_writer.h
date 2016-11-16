@@ -24,9 +24,9 @@
 #include "linker/vector_output_stream.h"
 
 // liblzma.
-#include "7zCrc.h"
-#include "XzCrc64.h"
-#include "XzEnc.h"
+#include <lzma/7zCrc.h>
+#include <lzma/XzCrc64.h>
+#include <lzma/XzEnc.h>
 
 namespace art {
 namespace debug {

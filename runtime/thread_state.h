@@ -49,7 +49,41 @@ enum ThreadState {
   kNative,                          // RUNNABLE       TS_RUNNING   running in a JNI native method
   kSuspended,                       // RUNNABLE       TS_RUNNING   suspended by GC or debugger
 };
-std::ostream& operator<<(std::ostream& os, const ThreadState& rhs);
+
+static std::ostream& operator<<(std::ostream& os, const ThreadState& rhs)
+{
+    switch (rhs)
+    {
+        case kTerminated:                     os << "kTerminated";                      break;
+        case kRunnable:                       os << "kRunnable";                        break;
+        case kTimedWaiting:                   os << "kTimedWaiting";                    break;
+        case kSleeping:                       os << "kSleeping";                        break;
+        case kBlocked:                        os << "kBlocked";                         break;
+        case kWaiting:                        os << "kWaiting";                         break;
+        case kWaitingForGcToComplete:         os << "kWaitingForGcToComplete";          break;
+        case kWaitingForCheckPointsToRun:     os << "kWaitingForCheckPointsToRun";      break;
+        case kWaitingPerformingGc:            os << "kWaitingPerformingGc";             break;
+        case kWaitingForDebuggerSend:         os << "kWaitingForDebuggerSend";          break;
+        case kWaitingForDebuggerToAttach:     os << "kWaitingForDebuggerToAttach";      break;
+        case kWaitingInMainDebuggerLoop:      os << "kWaitingInMainDebuggerLoop";       break;
+        case kWaitingForDebuggerSuspension:   os << "kWaitingForDebuggerSuspension";    break;
+        case kWaitingForJniOnLoad:            os << "kWaitingForJniOnLoad";             break;
+        case kWaitingForSignalCatcherOutput:  os << "kWaitingForSignalCatcherOutput";   break;
+        case kWaitingInMainSignalCatcherLoop: os << "kWaitingInMainSignalCatcherLoop";  break;
+        case kWaitingForDeoptimization:       os << "kWaitingForDeoptimization";        break;
+        case kWaitingForMethodTracingStart:   os << "kWaitingForMethodTracingStart";    break;
+        case kWaitingForVisitObjects:         os << "kWaitingForVisitObjects";          break;
+        case kWaitingForGetObjectsAllocated:  os << "kWaitingForGetObjectsAllocated";   break;
+        case kWaitingWeakGcRootRead:          os << "kWaitingWeakGcRootRead";           break;
+        case kWaitingForGcThreadFlip:         os << "kWaitingForGcThreadFlip";          break;
+        case kStarting:                       os << "kStarting";                        break;
+        case kNative:                         os << "kNative";                          break;
+        case kSuspended:                      os << "kSuspended";                       break;
+        default:                              os << "unknown";                          break;
+    }
+
+    return os;
+}
 
 }  // namespace art
 

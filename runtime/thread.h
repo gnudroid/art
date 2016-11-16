@@ -1580,7 +1580,18 @@ class ScopedDebugDisallowReadBarriers {
 };
 
 std::ostream& operator<<(std::ostream& os, const Thread& thread);
-std::ostream& operator<<(std::ostream& os, const StackedShadowFrameType& thread);
+
+inline std::ostream& operator<<(std::ostream& os, const StackedShadowFrameType& thread)
+{
+    switch (thread)
+    {
+        case StackedShadowFrameType::kShadowFrameUnderConstruction:         os << "kShadowFrameUnderConstruction";          break;
+        case StackedShadowFrameType::kDeoptimizationShadowFrame:            os << "kDeoptimizationShadowFrame";             break;
+        case StackedShadowFrameType::kSingleFrameDeoptimizationShadowFrame: os << "kSingleFrameDeoptimizationShadowFrame";  break;
+        default:                                                            os << "unknown";                                break;
+    }
+    return os;
+}
 
 }  // namespace art
 

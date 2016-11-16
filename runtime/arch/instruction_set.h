@@ -34,7 +34,23 @@ enum InstructionSet {
   kMips,
   kMips64
 };
-std::ostream& operator<<(std::ostream& os, const InstructionSet& rhs);
+
+inline std::ostream& operator<<(std::ostream& os, const InstructionSet& rhs)
+{
+    switch (rhs)
+    {
+        case kNone:     os << "kNone";     break;
+        case kArm:      os << "kArm";      break;
+        case kArm64:    os << "kArm64";    break;
+        case kThumb2:   os << "kThumb2";   break;
+        case kX86:      os << "kX86";      break;
+        case kX86_64:   os << "kX86_64";   break;
+        case kMips:     os << "kMips";     break;
+        case kMips64:   os << "kMips64";   break;
+        default:        os << "unknown";   break;
+    }
+    return os;
+}
 
 #if defined(__arm__)
 static constexpr InstructionSet kRuntimeISA = kArm;

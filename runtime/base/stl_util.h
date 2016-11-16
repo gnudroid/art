@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_BASE_STL_UTIL_H_
 #define ART_RUNTIME_BASE_STL_UTIL_H_
 
+#include <string.h>
 #include <algorithm>
 #include <sstream>
 

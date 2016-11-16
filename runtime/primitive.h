@@ -19,6 +19,8 @@
 
 #include <sys/types.h>
 
+#include <limits>
+
 #include "base/logging.h"
 #include "base/macros.h"
 

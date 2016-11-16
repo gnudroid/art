@@ -18,6 +18,7 @@
 
 #include <sys/file.h>
 #include <sys/stat.h>
+#include <string.h>
 
 #include "base/logging.h"
 #include "base/stringprintf.h"

@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_JIT_PROFILING_INFO_H_
 #define ART_RUNTIME_JIT_PROFILING_INFO_H_
 
+#include <memory.h>
 #include <vector>
 
 #include "base/macros.h"

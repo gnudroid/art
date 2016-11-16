@@ -1481,7 +1481,29 @@ class MANAGED Class FINAL : public Object {
   DISALLOW_IMPLICIT_CONSTRUCTORS(Class);
 };
 
-std::ostream& operator<<(std::ostream& os, const Class::Status& rhs);
+
+static std::ostream& operator<<(std::ostream& os, const Class::Status& rhs)
+{
+    switch (rhs)
+    {
+        case Class::Status::kStatusRetired:                    os << "kStatusRetired";                     break;
+        case Class::Status::kStatusError:                      os << "kStatusError";                       break;
+        case Class::Status::kStatusNotReady:                   os << "kStatusNotReady";                    break;
+        case Class::Status::kStatusIdx:                        os << "kStatusIdx";                         break;
+        case Class::Status::kStatusLoaded:                     os << "kStatusLoaded";                      break;
+        case Class::Status::kStatusResolving:                  os << "kStatusResolving";                   break;
+        case Class::Status::kStatusResolved:                   os << "kStatusResolved";                    break;
+        case Class::Status::kStatusVerifying:                  os << "kStatusVerifying";                   break;
+        case Class::Status::kStatusRetryVerificationAtRuntime: os << "kStatusRetryVerificationAtRuntime";  break;
+        case Class::Status::kStatusVerifyingAtRuntime:         os << "kStatusVerifyingAtRuntime";          break;
+        case Class::Status::kStatusVerified:                   os << "kStatusVerified";                    break;
+        case Class::Status::kStatusInitializing:               os << "kStatusInitializing";                break;
+        case Class::Status::kStatusInitialized:                os << "kStatusInitialized";                 break;
+        case Class::Status::kStatusMax:                        os << "kStatusMax";                         break;
+        default:                                               os << "unknown";                            break;
+    }
+    return os;
+}
 
 }  // namespace mirror
 }  // namespace art
